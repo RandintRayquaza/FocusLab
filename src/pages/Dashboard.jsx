@@ -4,7 +4,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   BarChart, Bar, ScatterChart, Scatter, ZAxis
 } from 'recharts';
-import { seedMockData } from '../utils/mockDataSeeder';
+
 import { 
   detectPeakFocusTime, analyzeSleepCorrelation, monitorStress 
 } from '../utils/insightEngine';
@@ -12,9 +12,7 @@ import {
 export default function Dashboard() {
   const { sessions, dailyChecks, streak } = useDataStore();
 
-  const handleSeed = () => {
-    seedMockData();
-  };
+  // Removed Demo Data Seed functionality per user request
 
   // 1. Calculate Summary Stats
   const { totalHours, avgScore } = useMemo(() => {
@@ -53,11 +51,11 @@ export default function Dashboard() {
     return data;
   }, [sessions]);
 
-  // 3. Prepare Mood vs Focus Scatter Data
+  // 3. Prepare Mood vs Focus Scatter Data (Requires mood field, defaulting to 3 if not present from new UI)
   const scatterData = useMemo(() => {
     return sessions.map(s => ({
-      mood: s.mood,
-      score: s.focusScore,
+      mood: s.mood || 3, // Since the new Session UI doesn't track mood, fallback to 3
+      score: s.focusScore || 100, // Handle missing FocusScore from older sessions
       subject: s.subject
     }));
   }, [sessions]);
@@ -91,12 +89,6 @@ export default function Dashboard() {
           <p className="text-text-secondary">Your cognitive performance insights.</p>
         </div>
         
-        <button 
-          onClick={handleSeed}
-          className="bg-surface hover:bg-surface-hover border border-white/10 px-4 py-2 rounded-xl text-sm transition-colors"
-        >
-          Load Demo Data
-        </button>
       </div>
       
       {/* KPI Cards */}

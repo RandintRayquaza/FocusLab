@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getRandomQuestion } from '../utils/questionBank';
+import { X } from 'lucide-react';
 
-export default function SmartLockModal({ subject, onUnlock }) {
+export default function SmartLockModal({ subject, onUnlock, onCancel }) {
   const [questionData, setQuestionData] = useState(null);
   const [answer, setAnswer] = useState('');
   const [errorText, setErrorText] = useState('');
@@ -34,7 +35,14 @@ export default function SmartLockModal({ subject, onUnlock }) {
       <div className="glass w-full max-w-md p-8 rounded-3xl shadow-2xl shadow-primary-500/10 border border-primary-500/20 relative overflow-hidden animate-fade-in">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-danger via-accent-warning to-accent-success animate-gradient bg-300%"></div>
         
-        <div className="text-center mb-6">
+        <button 
+          onClick={onCancel}
+          className="absolute top-4 right-4 text-text-secondary hover:text-white transition-colors p-2 bg-surface hover:bg-surface-hover rounded-full"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="text-center mb-6 mt-2">
           <div className="w-16 h-16 bg-accent-danger/20 text-accent-danger rounded-2xl flex items-center justify-center mx-auto mb-4">
             <span className="text-3xl">🔒</span>
           </div>

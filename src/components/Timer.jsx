@@ -76,6 +76,10 @@ export default function Timer() {
     setStatus('paused');
   };
 
+  const handleSmartLockCancel = () => {
+    setShowSmartLock(false);
+  };
+
   const handleResume = () => {
     setStatus('running');
   };
@@ -112,13 +116,18 @@ export default function Timer() {
       addSession({
         id: crypto.randomUUID(),
         subject: selectedSubject,
-        duration: Math.floor(totalStudyTime / 60), // in minutes
+        duration: Math.floor(totalStudyTime / 60) || 1, // Store at least 1 min if under 60s but over 5s
         breaks: breaksCount,
-        distractionCount: 0, // Not explicitly defined in new UI, defaulting to 0
+        distractionCount: 0, 
         createdAt: new Date().toISOString()
       });
     }
-    navigate('/analytics');
+
+    // Fix: "Cannot update a component (`BrowserRouter`) while rendering a different component (`Timer`)"
+    // By deferring the navigation, we allow React to finish the main render phase first.
+    setTimeout(() => {
+      navigate('/analytics');
+    }, 0);
   };
 
   // Time Formatting HH:MM:SS
@@ -142,6 +151,7 @@ export default function Timer() {
         <SmartLockModal 
           subject={selectedSubject} 
           onUnlock={handleSmartLockSuccess} 
+          onCancel={handleSmartLockCancel}
         />
       )}
 

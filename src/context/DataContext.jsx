@@ -7,7 +7,7 @@ export function DataProvider({ children }) {
   const [sessions, setSessions] = useLocalStorage(STORAGE_KEYS.SESSIONS, []);
   const [dailyChecks, setDailyChecks] = useLocalStorage(STORAGE_KEYS.DAILY_CHECKS, []);
   const [userProfile, setUserProfile] = useLocalStorage(STORAGE_KEYS.USER_PROFILE, {
-    name: 'MindTrack User',
+    name: 'FocusLab User',
     joinedAt: new Date().toISOString(),
   });
   const [streak, setStreak] = useLocalStorage(STORAGE_KEYS.STREAK, { current: 0, longest: 0, lastStudyDate: null });

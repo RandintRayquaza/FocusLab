@@ -19,7 +19,7 @@ export default function Layout() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-success flex items-center justify-center shadow-lg shadow-primary-500/20">
             <Activity size={24} className="text-white" />
           </div>
-          <span className="font-bold text-xl tracking-tight">MindTrack</span>
+          <span className="font-bold text-xl tracking-tight">FocusLab</span>
         </div>
 
         <nav className="flex-1 px-4 space-y-2">

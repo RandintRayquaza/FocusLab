@@ -1,10 +1,10 @@
-# 🧠 MindTrack AI
+# 🧠 FocusLab
 
-MindTrack AI is a **100% frontend, privacy-first cognitive performance analytics platform**. It helps you track your study sessions, measure your focus, and understand how your sleep, stress, and mood affect your cognitive performance.
+FocusLab is a **100% frontend, privacy-first cognitive performance analytics platform**. It helps you track your study sessions, measure your focus, and understand how your sleep, stress, and mood affect your cognitive performance.
 
 Built entirely to run locally in your browser, your data never leaves your device. No backend, no API keys, zero latency.
 
-![MindTrack AI Prototype](https://img.shields.io/badge/Status-Prototype-success?style=for-the-badge) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![FocusLab Prototype](https://img.shields.io/badge/Status-Prototype-success?style=for-the-badge) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ---
 
@@ -12,7 +12,7 @@ Built entirely to run locally in your browser, your data never leaves your devic
 
 ### 🔒 100% Offline & Private
 
-All data is stored securely in your browser's `localStorage`. There are no external database connections or AI APIs. MindTrack AI guarantees absolute privacy.
+All data is stored securely in your browser's `localStorage`. There are no external database connections or AI APIs. FocusLab guarantees absolute privacy.
 
 ### ⏱️ Smart Focus Timer with "Smart Lock"
 
@@ -21,7 +21,7 @@ A customizable Pomodoro timer that tracks your deep work.
 
 ### 📊 Behavioral Intelligence Engine
 
-Instead of generic LLM wrappers, MindTrack AI uses deterministic mathematical modeling to calculate:
+Instead of generic LLM wrappers, FocusLab uses deterministic mathematical modeling to calculate:
 
 - **Live Focus Score** (0-100) based on duration, distractions, and breaks.
 - **Smart Pomodoro Recommendations** based on your past performance.
@@ -55,7 +55,7 @@ Dynamically add, manage, and track custom subjects beyond the default Math, Phys
 
 ## 🚀 Getting Started
 
-Since MindTrack AI is a purely frontend application, getting started is incredibly fast.
+Since FocusLab is a purely frontend application, getting started is incredibly fast.
 
 ### Prerequisites
 
@@ -68,7 +68,7 @@ Since MindTrack AI is a purely frontend application, getting started is incredib
 
    ```bash
    git clone https://github.com/RandintRayquaza/FocusLab.git
-   cd "MindTrack AI"
+   cd "FocusLab"
    ```
 
 2. Install dependencies:
@@ -96,7 +96,7 @@ Navigate to the **Dashboard** and click **"Load Demo Data"**. The data seeder wi
 
 ## 📱 Mobile Responsive
 
-MindTrack AI is designed with a mobile-first approach. The UI gracefully degrades, stacking timer controls and shifting the sidebar to a bottom navigation bar on smaller screens.
+FocusLab is designed with a mobile-first approach. The UI gracefully degrades, stacking timer controls and shifting the sidebar to a bottom navigation bar on smaller screens.
 
 ---
 

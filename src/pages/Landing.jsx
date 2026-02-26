@@ -132,7 +132,7 @@ export default function Landing() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Behavioral Insight Engine</h2>
                 <p className="text-text-secondary text-lg mb-6 leading-relaxed">
-                  We replaced generic AI wrappers with hard logic. By triangulating daily stress, sleep quality, and active study performance, MindTrack builds a unique cognitive profile for you.
+                  We replaced generic AI wrappers with hard logic. By triangulating daily stress, sleep quality, and active study performance, FocusLab builds a unique cognitive profile for you.
                 </p>
                 <ul className="space-y-4">
                   {['Peak Time Detection', 'Burnout Prevention', 'Sleep-Focus Correlation'].map((item, i) => (
@@ -170,7 +170,7 @@ export default function Landing() {
 
       {/* Footer */}
       <footer className="py-12 text-center text-text-secondary border-t border-white/5 mt-12 z-10 relative">
-        <p className="font-medium">MindTrack AI v2.0</p>
+        <p className="font-medium">FocusLab v2.0</p>
         <p className="text-sm mt-2 opacity-50">Built for National Science Day.</p>
       </footer>
     </div>

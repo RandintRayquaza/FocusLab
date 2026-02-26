@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { Activity, LayoutDashboard, Timer, CheckSquare, BarChart2, Home, Settings } from 'lucide-react';
+import { Activity, LayoutDashboard, Timer, CheckSquare, BarChart2, Home } from 'lucide-react';
 
 export default function Layout() {
   const navItems = [
@@ -41,12 +41,7 @@ export default function Layout() {
           ))}
         </nav>
 
-        <div className="p-4 mt-auto">
-          <button className="flex items-center space-x-3 text-text-secondary hover:text-text-primary px-4 py-3 w-full rounded-xl transition-colors">
-            <Settings size={20} />
-            <span>Settings</span>
-          </button>
-        </div>
+
       </aside>
 
       {/* Main Content Area */}

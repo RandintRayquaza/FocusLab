@@ -37,29 +37,31 @@ export default function Timer() {
   useEffect(() => {
     if (status === 'running') {
       timerRef.current = setInterval(() => {
-        setTimeLeft(prev => {
-          if (prev <= 1) {
-            handleCompleteSession();
-            return 0;
-          }
-          return prev - 1;
-        });
+        setTimeLeft(prev => Math.max(0, prev - 1));
         setTotalStudyTime(prev => prev + 1);
       }, 1000);
     } else if (status === 'rest') {
       timerRef.current = setInterval(() => {
-        setRestTimeLeft(prev => {
-          if (prev <= 1) {
-            handleEndRest();
-            return 0;
-          }
-          return prev - 1;
-        });
+        setRestTimeLeft(prev => Math.max(0, prev - 1));
       }, 1000);
     }
 
     return () => clearInterval(timerRef.current);
   }, [status]);
+
+  // Monitor Timer Completion
+  useEffect(() => {
+    if (status === 'running' && timeLeft === 0) {
+      handleCompleteSession();
+    }
+  }, [timeLeft, status]);
+
+  // Monitor Rest Completion
+  useEffect(() => {
+    if (status === 'rest' && restTimeLeft === 0) {
+      handleEndRest();
+    }
+  }, [restTimeLeft, status]);
 
   const handleStart = () => {
     if (inputMinutes <= 0) return;

@@ -37,9 +37,13 @@ export default function Dashboard() {
       d.setDate(d.getDate() - i);
       const dateStr = d.toISOString().split('T')[0];
       
-      const daySessions = sessions.filter(s => s.startTime.startsWith(dateStr));
+      // Fallback to createdAt if startTime is missing (Phase 2 uses createdAt)
+      const daySessions = sessions.filter(s => {
+        const dateString = s.startTime || s.createdAt;
+        return dateString && dateString.startsWith(dateStr);
+      });
       const _avg = daySessions.length 
-        ? daySessions.reduce((acc, s) => acc + s.focusScore, 0) / daySessions.length 
+        ? daySessions.reduce((acc, s) => acc + (s.focusScore || 100), 0) / daySessions.length 
         : 0;
         
       data.push({
@@ -141,9 +145,9 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* 7-Day Trend */}
-        <div className="glass p-6 rounded-2xl border border-white/5 h-[350px] flex flex-col">
+        <div className="glass p-6 rounded-2xl border border-white/5 h-[350px] min-h-[350px] flex flex-col">
           <h3 className="font-bold mb-4 text-sm uppercase tracking-wider">7-Day Focus Trend</h3>
-          <div className="flex-1 min-h-0 w-full relative">
+          <div className="flex-1 w-full" style={{ minHeight: '80%' }}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={trendData} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
@@ -178,9 +182,9 @@ export default function Dashboard() {
         </div>
 
         {/* Mood vs Focus Scatter */}
-        <div className="glass p-6 rounded-2xl border border-white/5 h-[350px] flex flex-col">
+        <div className="glass p-6 rounded-2xl border border-white/5 h-[350px] min-h-[350px] flex flex-col">
           <h3 className="font-bold mb-4 text-sm uppercase tracking-wider">Mood Impact Analysis</h3>
-          <div className="flex-1 min-h-0 w-full relative">
+          <div className="flex-1 w-full" style={{ minHeight: '80%' }}>
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: -20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
